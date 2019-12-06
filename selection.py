@@ -1,4 +1,4 @@
-#Commande pour tout sélectionner les éléments de la scène
+#Commande pour tout sÃ©lectionner les Ã©lÃ©ments de la scÃ¨ne. Ajouter la commande attribut avec.
 
 import maya.cmds as mc
 
@@ -6,6 +6,6 @@ maya.cmds.select(all=True)
 sequence = maya.cmds.ls(selection=True)
 
 if len(sequence) == 0:
-  print "<la scène est vide>\n"
+  print "<la scÃ¨ne est vide>\n"
 else:
   enumerate(sequence)
