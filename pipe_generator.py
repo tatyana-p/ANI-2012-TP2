@@ -2,20 +2,20 @@ import maya.cmds as mc
 import random
 
 #Creation du tuyau
-#Creation de la bordure
-#Grouper les elements du pipe
-dragon = cmds.polyPipe(sh=10, h=20, name="Cube#")
-reptile = cmds.polyPipe(sh=3, h=3, name="Bordure#" )
+
+flappy = cmds.polyPipe(sh=10, h=20, name="Corps#")
+bird = cmds.polyPipe(sh=3, h=3, name="Bordure#" )
 
 myBlinn = cmds.shadingNode('blinn', asShader=True)
 cmds.setAttr( myBlinn + '.color', 0, 1, 0, type="double3")
-cmds.select( dragon, reptile, replace=True )
+cmds.select( flappy, bird, replace=True )
 cmds.hyperShade(assign=myBlinn)
 
-cmds.move(0,5,0, reptile)
-cmds.scale(1.2,0.9,1.2, reptile)
+cmds.move(0,5,0, bird)
+cmds.scale(1.2,0.9,1.2, bird)
 
-union = cmds.polyUnite(dragon, reptile, name="Uni#")
+#Unir les elements du pipe
+union = cmds.polyUnite(flappy, bird, name="Uni#")
 
 transformPipe = union[0]
 group1 = cmds.group(empty=True, name=transformPipe + '_group#')
