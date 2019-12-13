@@ -1,6 +1,6 @@
 import maya.cmds as mc
 
-#Animation de Flappy bird. À ne pas utiliser avec Unity.
+#Animation de Flappy bird. Ne pas utiliser avec Unity.
 #Creation de l'oiseau
 
 #Parties du corps
