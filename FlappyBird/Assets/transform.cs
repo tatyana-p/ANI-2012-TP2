@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
@@ -9,15 +9,13 @@ public class transform : MonoBehaviour
     void Update ()
     {
 		  transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
-      
+
       if (Input.GetKey("space"))
       {
-        if (reset == true) {
-             SceneManager.LoadScene("flappyBird");
-             Time.timeScale = 1;
-             reset = false;
-         }
+        GameObject gameObject = GameObject.Find("FELPUDO_PARENT");
+        gameObject.GetComponent<ParticleSystem>().Play();
         transform.Translate(Vector3.forward * Time.deltaTime*2);
+
       }else{
         transform.Translate(Vector3.back * Time.deltaTime*2);
       }
@@ -25,7 +23,9 @@ public class transform : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-         Time.timeScale = 0;
-         reset = true;
+
+
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1;
     }
 }
